@@ -20,21 +20,13 @@ def main():
     game_on = True
     game_board = GameBoard()
     game_board.draw_board()
-
-    player_mark = "X"
-    npc_mark = "◯"
+    game_board.choose_first_player()
 
     while game_on:
         if game_board.round % 2 != 0:
-            game_board.choose_number(player_mark, npc_mark)
-            if game_board.check_win_conditions(player_mark):
-                print("Player has won the match.")
-                exit()
+            game_board.choose_number()
         elif game_board.round % 2 == 0:
-            game_board.let_npc_play(npc_mark, player_mark)
-            if game_board.check_win_conditions(npc_mark):
-                print("NPC has won the match.")
-                exit()
+            game_board.let_npc_play()
 
 
 if __name__ == '__main__':
